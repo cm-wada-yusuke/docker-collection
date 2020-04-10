@@ -71,7 +71,6 @@ RUN gem install asciidoctor-pdf-cjk-kai_gen_gothic --no-ri --no-rdoc && \
   cp VLGothic/VL-Gothic-Regular.ttf /root/.fonts && \
   rm -rf /root/VLGothic* && \
   # wget -qO- "https://github.com/dustinblackman/phantomized/releases/download/2.1.1/dockerized-phantomjs.tar.gz" | tar xz -C / && \
-  npm install -g yarn && \
   npm install -g mermaid@${MERMAID_VERSION} && \
   wget https://github.com/asciidoctor/asciidoctor-stylesheet-factory/archive/master.zip && \
   unzip master.zip && \
@@ -88,6 +87,10 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 
 # Installing ssh for AWS Amplify building
 RUN apt-get update && apt-get install -y git-all openssh-client default-jre rsync
+
+# Install and switch to nodejs 12.x
+RUN npm install -g n && n 12.16.2 && npm install -g yarn && node --version
+
 
 WORKDIR /documents
 VOLUME /documents
