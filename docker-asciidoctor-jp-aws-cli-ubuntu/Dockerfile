@@ -4,9 +4,9 @@ LABEL MAINTAINERS="Yusuke Wada <wada.yusuke@classmethod.jp>"
 
 ARG asciidoctor_version=2.0.10
 ARG asciidoctor_confluence_version=0.0.2
-ARG asciidoctor_pdf_version=1.5.2
+ARG asciidoctor_pdf_version=1.5.3
 ARG asciidoctor_diagram_version=2.0.1
-ARG asciidoctor_epub3_version=1.5.0.alpha.9
+ARG asciidoctor_epub3_version=1.5.0.alpha.18
 ARG asciidoctor_mathematical_version=0.3.1
 ARG asciidoctor_revealjs_version=4.0.1
 
@@ -50,7 +50,7 @@ RUN gem install --no-document \
   coderay \
   epubcheck \
   haml \
-  kindlegen \
+  # kindlegen \ EOL 
   rouge \
   slim \
   thread_safe \
@@ -89,7 +89,10 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN apt-get update && apt-get install -y git-all openssh-client default-jre rsync
 
 # Install and switch to nodejs 12.x
-RUN npm install -g n && n 12.16.2 && npm install -g yarn && node --version
+RUN npm install -g n && n 12 && npm install -g yarn && node --version
+
+# Install utility
+RUN apt-get install -y software-properties-common && add-apt-repository ppa:lazygit-team/release && apt-get update && apt-get install -y lazygit
 
 
 WORKDIR /documents
