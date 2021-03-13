@@ -2,13 +2,13 @@ FROM ubuntu:18.04
 
 LABEL MAINTAINERS="Yusuke Wada <wada.yusuke@classmethod.jp>"
 
-ARG asciidoctor_version=2.0.10
+ARG asciidoctor_version=2.0.12
 ARG asciidoctor_confluence_version=0.0.2
-ARG asciidoctor_pdf_version=1.5.3
-ARG asciidoctor_diagram_version=2.0.1
-ARG asciidoctor_epub3_version=1.5.0.alpha.18
-ARG asciidoctor_mathematical_version=0.3.1
-ARG asciidoctor_revealjs_version=4.0.1
+ARG asciidoctor_pdf_version=1.5.4
+ARG asciidoctor_diagram_version=2.1.0
+ARG asciidoctor_epub3_version=1.5.0.alpha.19
+ARG asciidoctor_mathematical_version=0.3.5
+ARG asciidoctor_revealjs_version=4.1.0
 
 ENV ASCIIDOCTOR_VERSION=${asciidoctor_version} \
   ASCIIDOCTOR_CONFLUENCE_VERSION=${asciidoctor_confluence_version} \
